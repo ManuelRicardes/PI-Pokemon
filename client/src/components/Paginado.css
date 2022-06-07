@@ -1,0 +1,8 @@
+.paginado{
+  margin-left: -50px;
+  display:inline-flex
+}
+.number:hover{
+    box-shadow: 50px white;
+}
+

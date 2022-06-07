@@ -1,0 +1,61 @@
+.Detail{
+  background-image: url("../imagenes/2de64a23060cf5dac90647957828ccdb.png");
+  background-repeat: no-repeat;
+  height: 600px;
+  background-position: center;
+
+}
+.Img-back{
+    margin-top: -5px;
+    margin-left: 510px;
+    /* background-color: #A4A7AE; */
+    width: 350px;
+    height: 230px;
+}
+
+.Name{
+    /* background-color: rgb(4, 15, 24); */
+    padding-top: 30px;
+    margin-left: 550px;
+    width: 200px;
+    text-align: center;
+}
+.ID{
+   text-align: center;
+    width: 380px;
+    margin-left: 490px;
+    margin-top: 20px;
+}
+.Life{
+    margin-left: 500px;
+    margin-top: -100px;
+    width: 100px;
+}
+.Speed{
+    margin-top: 40px;
+    margin-left: 500px;
+    width: 100px;
+}
+
+.Strength{
+    margin-left: 635px;
+    margin-top: 40px;
+    width: 120px;
+}
+.Defense{
+    margin-top: 40px;
+    margin-left: 635px;
+    width: 100px;
+  
+}
+.Height{
+    margin-top: -148px;
+    margin-left: 775px;
+    width: 100px;
+}
+.Weight{
+    margin-top: 40px;
+    margin-left: 775px;
+    width: 100px;
+  
+}

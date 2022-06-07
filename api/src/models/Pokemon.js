@@ -26,11 +26,15 @@ module.exports = (sequelize) => {
     speed:{
       type: DataTypes.INTEGER
     },
-      height:{
+    height:{
       type: DataTypes.INTEGER
     },
     weight:{
       type: DataTypes.INTEGER
+    },
+    image:{
+      type: DataTypes.STRING,
+      defaultValue: ""
     },
   },{   
     timestamps:false 

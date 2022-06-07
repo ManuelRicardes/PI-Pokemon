@@ -1,4 +1,5 @@
 const axios = require("axios");
+const db = require("../db");
 
 const { Pokemon } = require("../db");
 const { Type } = require("../db");
@@ -57,16 +58,16 @@ async function apiPokemons(req, res, next) {
         return pokemon;
       })
       );
-      
+
     const pokemonFinal = dataApi.map((e) => ({
       id: e.id,
       name: e.name,
       image: e.sprites.other.home?.front_default
         ? e.sprites.other.home.front_default
         : e.sprites.other.home?.front_shiny,
-      type: e.types.map((e) => e.type.name).join("-"),
+      types: e.types.map((e) => e.type.name).join("-"),
       strength: e.stats[1].base_stat}));
-    
+
     return pokemonFinal;
   } catch (error) {
     console.log(error);
@@ -74,18 +75,45 @@ async function apiPokemons(req, res, next) {
 }
 
 const dataBPoke = async () => {
-  console.log(Pokemon);
-  return await Pokemon.findAll({
+ 
+  return (await Pokemon.findAll({
     include: {
       model: Type,
+      attributes: ["name"],
+      through: {
+        attributes: [],
     },
-  });
+  }
+  }
+)).map(e=>e.toJSON());
+
+// const pokemonDB = {
+//   id: db.id,
+//       name: db.name,
+//       // type: db.types.name,//.map((e) => e.type.name).join("-"),
+//       //img: "https://media.giphy.com/media/DRfu7BT8ZK1uo/giphy.gif",
+//       life: db.life,
+//       strength: db.strength,
+//       defense: db.defense,
+//       speed: db.speed,
+//       height: db.height,
+//       weight: db.weight,
+// }
+// return pokemonDB
 };
 const allPokemons = async () => {
   const pokeApi = await apiPokemons();
   const pokeBd = await dataBPoke();
-  const allPoke = pokeApi.concat(pokeBd);
+
+  const pokeBdOk= pokeBd?.map(e=>({
+    ...e,
+    types: e.types?.map(e=>e.name).join("-")
+
+  }))
+  console.log("base dato",pokeBdOk)
+  const allPoke = pokeApi.concat(pokeBdOk);
   return allPoke;
+
 };
 
 const getPokemonDbById = async (pokemon) => {
@@ -103,12 +131,10 @@ const getPokemonDbById = async (pokemon) => {
 };
 
 const pokeByID = async (id) => {
-  if (id.length < 30) {
-    //try{
-    if (id < 41) {
-      let newType = (await axios(`https://pokeapi.co/api/v2/type`)).data
-        .results;
-      console.log("hola", newType);
+ // if (id < 41) {
+    try{
+
+
       let apiId = await axios(`https://pokeapi.co/api/v2/pokemon/${id}`);
       //console.log("apiId=", apiId)
       let data = await apiId.data;
@@ -117,7 +143,7 @@ const pokeByID = async (id) => {
       let pokeId = {
         id: data.id,
         name: data.name,
-        type: data.types.map((t) => t.type.name).join("-"),
+        types: data.types.map((t) => t.type.name).join("-"),
         image: data.sprites.other.home?.front_default
           ? data.sprites.other.home.front_default
           : data.sprites.other.home?.front_shiny,
@@ -128,37 +154,65 @@ const pokeByID = async (id) => {
         height: data.height,
         weight: data.weight,
       };
-      console.log(pokeId);
+      // console.log(pokeId);
       return pokeId;
-    }
-    //}catch{
+   // }
+    }catch{
     try {
-      const pokemonIdDb = await Pokemon.findByPk(id);
+      const pokemonIdDb = await Pokemon.findByPk(id,{
+        include:{
+        model:Type
+         }});
       return pokemonIdDb;
     } catch (err) {
       console.log(err);
       throw err;
     }
-  }
-};
+ }
+}
 const newPokemon = async (req, res) => {
   // try{
-  const { name, life, strength, defense, speed,height,weight } = req.body;
+  const { name, life, strength, defense, speed,height,weight, image, types } = req.body;
 
   let newPoke = await Pokemon.create({
     name,
+    image: image?image:"https://images.wikidexcdn.net/mwuploads/esssbwiki/2/25/latest/20220119214726/Togepi_Ilustraci%C3%B3n.png",
     life,
     strength,
     defense,
     speed,
     height,
-    weight
+    weight,
   });
-
-  console.log("se cargo");
-  return newPoke;
-  
+  await Promise.all(types.map(async e =>{
+    await newPoke.addType([  // es tabla de relaciones belongsToMany
+          (await Type.findOrCreate({
+            where : {
+              name : e
+            }
+          })) [0].dataValues.id
+        ])
+      }))
+      const relacionTablas = await Pokemon.findOne({
+          where: {
+            name : name
+            
+          }
+          ,
+          include: {
+            model : Type,
+            attributes : ["name"],
+            through : {
+              attributes : [],
+            },
+          }
+        })
+        res.json({info:"Pokemon Creado"})
+      return relacionTablas
 };
+
+  
+
 
 module.exports = {
   allPokemons,

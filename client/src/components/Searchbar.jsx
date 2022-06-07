@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getPokemonByName } from "../redux/actions";
 import {useDispatch} from "react-redux"
+import "./Searchbar.css"
 
 
 
@@ -17,13 +18,14 @@ function handleSubmit(e){
         dispatch(getPokemonByName(name))
         }   
         return (
-          <div>
+          <div >
             <input
+              className="Searchbar"
               type="text"
               placeholder="Search..."
               onChange={(e) => handleSearch(e)}
             />
-            <button type="submit" onClick={(e)=>handleSubmit(e)}>Search</button>
+            <button className="Searchbutton" type="submit" onClick={(e)=>handleSubmit(e)}>Search</button>
             </div>
         );
       }

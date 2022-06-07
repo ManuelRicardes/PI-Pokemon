@@ -2,6 +2,7 @@
 //paginado segun selene
 
 import React from "react";
+import "./Paginado.css"
 export function Paginado({pokemonsPerPage, pokemons, paginado}){
 const pageNumber =[]
 
@@ -14,7 +15,7 @@ return(
         <ul className="paginado">
             {pageNumber && pageNumber.map(number =>(
                 <ul className="number" key={number}>
-                <a onClick={() => paginado(number)}>{number}</a>
+                <button onClick={() => paginado(number)}>{number}</button>
                </ul>
             ))}
         </ul>

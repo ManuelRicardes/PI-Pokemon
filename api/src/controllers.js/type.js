@@ -1,21 +1,21 @@
 const axios = require("axios");
 const { Type } = require("../db");
 
-const apiType = async () => {
+const apiType = async (req,res) => {
   try {
     let newType = (await axios(`https://pokeapi.co/api/v2/type`)).data.results;
-    let typeName = await newType.map((e) => ({
-      name: e.name
-    }));
-    await Type.bulkCreate(typeName);
-    return "se cargo todo";
+    let typeName = await newType.map((e) => e.name);
+    typeName.forEach(e=>{
+      Type.findOrCreate({
+        where:{name:e}
+      })
+    })
+    let tipos = await Type.findAll();
+  res.status(200).send(tipos);
   } catch (error) {
-    console.log("el error es: ", error);
+    res.status(404).json({error})
   }
 };
 
-const dbType = async () => {
-  let tipos = await Type.findAll();
-  return tipos;
-};
-module.exports = { dbType, apiType };
+
+module.exports = {  apiType };

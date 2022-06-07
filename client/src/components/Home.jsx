@@ -4,6 +4,7 @@ import { filter, filterByType, getAllPokemons, getTypes } from "../redux/actions
 import Card from "./Card"
 import Searchbar from "./Searchbar"
 import {  orderByName, orderByStrength } from "../redux/actions";
+import "./Home.css"
 
 
 
@@ -61,7 +62,7 @@ function handleFilterByType(e){
     e.preventDefault()
     dispatch(filterByType(e.target.value))
     setCurrentPage(1)
-    //setFilter(`Filtrado ${e.target.value}`)
+   // setFilter(`Filtrado ${e.target.value}`)
 }
 
 function handleFilter(e){
@@ -71,34 +72,35 @@ function handleFilter(e){
 }
 
 return (
-    <div>
+    <div className="Home">
         <h1>Pokemons</h1>
         <Link to = '/createpokemons'>
+            
         <button>Create your Pokemon</button>
         </Link>
-        {/* oredenamiento sin modularizar por nombre  */}
         <Searchbar/>
-        <select onChange={e=>handleSortByName(e)}>
+        {/* oredenamiento sin modularizar por nombre  */}
+        <select className="sort" onChange={e=>handleSortByName(e)}>
             <option >All</option>
             <option value="asc">a to z</option>
             <option value="des">z to a</option>
         </select>
         {/* oredenamiento sin modularizar por fuerza */}
-        <select onChange={e=>handleSortByStrength(e)}>
+        <select className="sort"onChange={e=>handleSortByStrength(e)}>
             <option >All</option>
            
             <option value="asc">mas debil</option>
             <option value="des">mas fuerte</option>
         </select>
         {/* Filttro por tipo  */}
-        <select onChange={e=>handleFilterByType(e)}>
+        <select className="filter"onChange={e=>handleFilterByType(e)}>
             <option value="All">All</option>
             {types.map((t)=>(
                 <option value = {t.name}>{t.name}</option>
                 ))}            
         </select>
   {/* Filttro por existente o creado  */}
-  <select onChange={e=>handleFilter(e)}>
+  <select className="filter"onChange={e=>handleFilter(e)}>
             <option value="all">All</option>
             <option value="existing">Existing</option>
             <option value="created">Created</option>
@@ -110,16 +112,24 @@ return (
         pokemons={pokemons.length}
         paginado= {paginado}
     />
-           <div>    
+           <div className="cards">    
         {
         currentPokemons.length?currentPokemons.map(e=>{
             return (
                 <Link to = {`/pokemons/${e.id}`}>
-                <Card name={e.name} image={e.image} type={e.type}/>           
+                <Card 
+                 name={e.name} image={e.image} 
+                // type ={e.types ? e.types : e.types instanceof Array? e.types[0].name: "Sin Tipo"}
+                type={e.types[0] instanceof Object? e.types.map(e=>e.name).join("-"):e.types? e.types:"Sin tipo"}
+                /> 
+                
                 </Link>
-          )}):<img src="http://gifgifs.com/animations/creatures-cartoons/pokemon/Sleeping.gif"></img>
+          )}):<div>
+        <img src="http://gifgifs.com/animations/creatures-cartoons/pokemon/Sleeping.gif"></img>
           
-         }
+          <h3>Loading...</h3>
+          </div>
+        }
          </div>
          <Paginado
         pokemonsPerPage={pokemonsPerPage}

@@ -1,0 +1,21 @@
+body{
+    background-image: url("../imagenes/black-wallpaper-201219141546111280x960.jpg");
+    background-repeat:   round repeat;
+   color: white;
+    
+}
+.cards{
+    display:flex ;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.filter{
+    margin-left: 8px;
+     margin-right: 8px;
+}
+.sort{
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+

@@ -15,15 +15,15 @@ export function getTypes(){
 
 export function getPokemonByName(name){
     return async function(dispatch){
-       // try{
+        try{
         let back= await axios(`http://localhost:3001/pokemons/name?name=${name}`)
         return dispatch({
             type: "GET_POKEMON_BY_NAME",
             payload: back.data
         })
-    // }catch{
-    // console.log("Rompimo todo")
-    // }
+     }catch{
+    alert("Pokemon not found")
+    }
 }
 }
 export function orderByName(payload){
@@ -43,7 +43,7 @@ export function orderByStrength(payload){
 export function getPokemonsById(id){
 
     return async function(dispatch){
-        const json =(await axios.get(`http://localhost:3001/pokemons/${id}`)).data           
+        const json =(await axios(`http://localhost:3001/pokemons/${id}`)).data          
         return dispatch({
           type : "GET_POKEMONS_BY_ID",
           payload : json
@@ -52,7 +52,6 @@ export function getPokemonsById(id){
 
     }
     export function filterByType(payload){
-        console.log(payload)
         return {
         type : "FILTER_BY_TYPE",
         payload
@@ -64,10 +63,4 @@ export function getPokemonsById(id){
         payload
         }
     }
-    export function postNewPokemon(payload){
-
-       return async function(dispatch){
-        const json =(await axios.post(`http://localhost:3001/pokemons`,payload))
-        return json
-      }
-    }
+    

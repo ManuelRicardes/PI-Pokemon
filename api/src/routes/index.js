@@ -7,7 +7,7 @@ const {
   pokeByName,
   newPokemon,
 } = require("../controllers.js/pokemon");
-const { dbType, apiType } = require("../controllers.js/type");
+const {  apiType } = require("../controllers.js/type");
 const { Pokemon } = require("../db");
 const { Type } = require("../db");
 
@@ -45,51 +45,48 @@ router.get("/pokemons/:id", async (req, res) => {
   }
 });
 
-router.get("/type", async (req, res) => {
-  let tipo = await dbType();
-  res.json(tipo);
-  return tipo
-});
+router.get("/type",apiType);
 
-router.post("/pokemons", async (req, res) => {
-  let { name, life, strength, defense, speed, height, weight, type } =
-    req.body;
+router.post("/pokemons",newPokemon)
+//  async (req, res) => {
+//   let { name, life, strength, defense, speed, height, weight, types } =
+//     req.body;
 
-  // if (
-  //   isNaN(life) ||
-  //   isNaN(strength) ||
-  //   isNaN(defense) ||
-  //   isNaN(speed) ||
-  //   isNaN(height) ||
-  //   isNaN(weight)
-  // )
-  //   return res.json({ info: "Alguno de los argumentos no es un numero" });
+//   // if (
+//   //   isNaN(life) ||
+//   //   isNaN(strength) ||
+//   //   isNaN(defense) ||
+//   //   isNaN(speed) ||
+//   //   isNaN(height) ||
+//   //   isNaN(weight)
+//   // )
+//   //   return res.json({ info: "Alguno de los argumentos no es un numero" });
   
-  try {
-    let newPoke = await Pokemon.create({
-      name,
-      life,
-      strength,
-      defense,
-      speed,
-      height,
-      weight,
-    });
-    //console.log("poke:",newPoke)
+//   try {
+//     let newPoke = await Pokemon.create({
+//       name,
+//       life,
+//       strength,
+//       defense,
+//       speed,
+//       height,
+//       weight,
+//     });
+//     //console.log("poke:",newPoke)
 
 
-    let  typeDB = await Type.findAll({
-      where: { name: type },
-    });
+//     let  typeDB = await Type.findAll({
+//       where: { name: types },
+//     });
 
-   newPoke.addType(typeDB);
-    console.log("typo:",typeDB[0].dataValues.name)
-    res.send("Succesfull");
-    //return newPoke;
-  } catch (error) {
-    res.status(400).send(error);
-  }
-});
+//    newPoke.addType(typeDB);
+//     console.log("typo:",typeDB[0].dataValues.name)
+//     res.send("Succesfull");
+//     //return newPoke;
+//   } catch (error) {
+//     res.status(400).send(error);
+//   }
+// });
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

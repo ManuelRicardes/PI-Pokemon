@@ -1,0 +1,14 @@
+.Searchbar{
+    background-color: #C7E1D8;
+    outline: none;
+    /* border: red solid 2px; */
+    border-radius: 2%;
+    margin-right: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.Searchbutton{
+    outline: none;
+    background-color: #C7E1D8;
+    border-radius: 2%;
+}

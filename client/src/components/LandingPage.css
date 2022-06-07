@@ -1,6 +1,7 @@
-body{
-    background: url("../imagenes/descarga.jpg") no-repeat  ;
-    background-size: 50% ;
-    background-position: top center;   
-    background-color: black;
-}
+.landing{
+      height: 657px;
+      background-image: url("../imagenes/wallpaperflare.com_wallpaper.jpg");
+      background-size: cover;
+    }
+
+   

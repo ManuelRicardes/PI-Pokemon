@@ -1,3 +1,145 @@
 .Formulario{
-    display:list-item
+    color: white;
+    border: solid 3px red;
+    border-radius: 2%;
+    height: 500px;
+    width: 1000px;
+    margin-left: 180px;
+    margin-top: 70px;
+    box-shadow: black 2rem 2rem 30px;
+    background: linear-gradient(345deg, rgb(8, 8, 8), transparent);
+
+    
+}
+
+.name{
+    margin-top: 10px;
+    /* background-color: red; */
+    height: 50px;
+    width: 500px;
+    justify-content: center;
+}
+.Input-name{
+    margin-left: 50px;
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+}
+.image{
+    margin-top: -50px;
+    /* background-color: white; */
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    margin-left: 500px
+}
+.Input-image{
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+    /* margin-left: 500px; */
+}
+.life{
+   margin-top: 20px;
+    /* background-color: white; */
+    height: 50px;
+    width: 500px;
+    justify-content: center;
+
+}
+.Input-life{
+    margin-left: 50px;
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8; 
+
+}
+.strength{
+    margin-top: -50px;
+    /* background-color: white; */
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    margin-left: 500px
+
+}
+.Input-strength{
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8;
+}
+.defense{
+    margin-top: 20px;
+    /* background-color: white; */
+    height: 50px;
+    width: 500px;
+    justify-content: center;
+
+}
+.Input-defense{
+    margin-left: 50px;
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8; ;
+
+}
+.speed{
+    margin-top: -50px;
+    /* background-color: white; */
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    margin-left: 500px
+
+}
+.Input-speed{
+     position: block;
+    height: 20px;
+    background-color: #C7E1D8
+}
+.height{
+    margin-top: 20px;
+    /* background-color: white; */
+    height: 50px;
+    width: 500px;
+    justify-content: center;
+}
+.Input-height{
+    margin-left: 50px;
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8; ;;
+
+}
+.weight{
+    margin-top: -50px;
+    /* background-color: white; */
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+    margin-left: 500px
+}
+.Input-weight{
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8
+}
+.type{
+    
+    /* background-color: white; */
+    
+    justify-content: center;
+
+   
+    width: 10000;
+    justify-content: center;
+    /* background-color: red; */
+    height: 90px;
+
+}
+.selected{
+    display:inline-flex;
+}
+.submit{
+    margin-top: 5px;
 }

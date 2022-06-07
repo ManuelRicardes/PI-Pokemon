@@ -1,0 +1,19 @@
+.Card{
+    padding: 150px;
+    height: 470px;
+    background-image: url("../imagenes/2de64a23060cf5dac90647957828ccdb.png");
+    background-repeat: no-repeat;
+    background-position: center ;
+    padding-top: 5px;
+
+  
+}
+.cardText{
+    margin-top: 35px;
+    color: white;
+    
+}
+.cardImg{
+     margin-top: -5px;
+    margin-bottom: 140px;
+}

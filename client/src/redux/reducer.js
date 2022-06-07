@@ -1,7 +1,7 @@
 const initialState = {
     pokemons:[],
     types:[],
-    pokemonId:[],
+    pokemonId:{},
     allPokemons:[],
     newPokemon:[]
 }
@@ -52,7 +52,7 @@ switch (type){
                 return -1
             }
             return 0  
-    })://  payload === "fuerza-des"?
+    }):  payload === "des"?
         state.pokemons.sort(function(a,b){
             if (a.strength > b.strength){
                 console.log(a.strength)
@@ -62,7 +62,14 @@ switch (type){
                 return 1
             }
             return 0
-    } )
+    } ):state.pokemons.sort(function(a,b){
+        if (a.id > b.id){
+            return 1
+        }
+        if(b.strength > a.strength){
+            return -1
+        }
+        return 0 })
         return{
             ...state,
             pokemons:array
@@ -83,9 +90,10 @@ switch (type){
         }
     
         case "FILTER_BY_TYPE":
-        const types = state.allPokemons// allPokemons = copia de pokemons 
+        const types = state.allPokemons
         const filterByType = payload === "All" ? types
-        : types.filter(e=>e.type.includes(payload))
+        : types.filter(e=>e.types.includes(payload))
+       
                 return{
                 ...state,
                 pokemons: filterByType
@@ -101,10 +109,7 @@ switch (type){
                         pokemons: filter
                     }
 
-    case "POST_NEW_POKEMON":
-        return{
-            ...state,
-        }
+    
     
     default: return state
     }
