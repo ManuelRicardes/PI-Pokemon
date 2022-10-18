@@ -157,6 +157,7 @@ function handleDeleteType(e){
             name="image"
             onChange={handleChange}
             ></input>
+
             <div className="error">{errores.image && <p>{errores.image}</p>}</div>
           </div>
           <div className="life">

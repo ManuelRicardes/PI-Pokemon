@@ -2,36 +2,48 @@
     color: white;
     border: solid 3px red;
     border-radius: 2%;
-    height: 500px;
-    width: 1000px;
-    margin-left: 180px;
-    margin-top: 70px;
+    height: 85%;
+    width: 70%;
+    /* margin-left: 180px;
+    margin-top: 70px; */
     box-shadow: black 2rem 2rem 30px;
     background: linear-gradient(345deg, rgb(8, 8, 8), transparent);
+/* min-width: 300px; */
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
 
-    
 }
 
 .name{
     margin-top: 10px;
     /* background-color: red; */
     height: 50px;
-    width: 500px;
+    width: 45%;
     justify-content: center;
+    position: relative;
+
+
 }
 .Input-name{
-    margin-left: 50px;
+    /* margin-left: 50px; */
     position: block;
     height: 20px;
     background-color: #C7E1D8   ;
 }
 .image{
-    margin-top: -50px;
+    /* margin-top: -50px; */
     /* background-color: white; */
     justify-content: center;
     height: 50px;
-    width: 500px;
-    margin-left: 500px
+    width: 45%;
+    /* margin-left: 500px; */
+    position: relative;
+    left: 50%;
+    bottom:  9%;
+    /* min-width: max-content; */
+
 }
 .Input-image{
     position: block;
@@ -40,27 +52,33 @@
     /* margin-left: 500px; */
 }
 .life{
-   margin-top: 20px;
+   /* margin-top: 20px; */
     /* background-color: white; */
     height: 50px;
-    width: 500px;
+    width: 45%;
     justify-content: center;
+    position: relative;
+    bottom:  5%;
 
 }
 .Input-life{
-    margin-left: 50px;
+    /* margin-left: 50px; */
     position: block;
     height: 20px;
-    background-color: #C7E1D8; 
+    background-color: #C7E1D8;
 
 }
 .strength{
-    margin-top: -50px;
+    /* margin-top: -50px; */
     /* background-color: white; */
     justify-content: center;
     height: 50px;
-    width: 500px;
-    margin-left: 500px
+    width: 45%;
+    /* margin-left: 500px */
+    position: relative;
+    left: 50%;
+    bottom:  14%;
+
 
 }
 .Input-strength{
@@ -69,55 +87,69 @@
     background-color: #C7E1D8;
 }
 .defense{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     /* background-color: white; */
     height: 50px;
-    width: 500px;
+    width: 45%;
     justify-content: center;
+    position: relative;
+    bottom: 10%;
+
 
 }
 .Input-defense{
-    margin-left: 50px;
+    /* margin-left: 50px; */
     position: block;
     height: 20px;
     background-color: #C7E1D8; ;
 
 }
 .speed{
-    margin-top: -50px;
+    /* margin-top: -50px; */
     /* background-color: white; */
     justify-content: center;
     height: 50px;
-    width: 500px;
-    margin-left: 500px
+    width: 45%;
+    /* margin-left: 500px; */
+    position: relative;
+    left: 50%;
+    bottom: 19%;
+
 
 }
 .Input-speed{
      position: block;
     height: 20px;
     background-color: #C7E1D8
+
 }
 .height{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     /* background-color: white; */
     height: 50px;
-    width: 500px;
+    width: 45%;
     justify-content: center;
+    position: relative;
+    bottom: 15%;
+
 }
 .Input-height{
-    margin-left: 50px;
+    /* margin-left: 50px; */
     position: block;
     height: 20px;
     background-color: #C7E1D8; ;;
 
 }
 .weight{
-    margin-top: -50px;
+    /* margin-top: -50px; */
     /* background-color: white; */
     justify-content: center;
     height: 50px;
-    width: 500px;
-    margin-left: 500px
+    width: 45%;
+    /* margin-left: 500px */
+    position: relative;
+    left: 50%;
+bottom: 24%;
 }
 .Input-weight{
     position: block;
@@ -125,12 +157,12 @@
     background-color: #C7E1D8
 }
 .type{
-    
-    /* background-color: white; */
-    
-    justify-content: center;
 
-   
+    /* background-color: red; */
+
+    justify-content: center;
+position: relative;
+   bottom: 20%;
     width: 10000;
     justify-content: center;
     /* background-color: red; */
@@ -142,4 +174,6 @@
 }
 .submit{
     margin-top: 5px;
+    position:relative;
+    bottom: 15%;
 }
