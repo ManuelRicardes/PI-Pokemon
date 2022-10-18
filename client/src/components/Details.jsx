@@ -39,14 +39,18 @@ export default function Detail() {
         ></img>
    </div>
         <h4 className="ID">ID: {pokeId.id}</h4>
+        <div className="first">
         <h4 className="Strength">Strength: {pokeId.strength}</h4>
         <h4 className="Defense">Defense: {pokeId.defense}</h4>
         <div className="Life"><h4>Life: {pokeId.life}</h4></div>
+        </div>
+        <div className="second">
         <h4 className="Speed">Speed: {pokeId.speed}</h4>
-        <h4 className="Type">Type: {pokeId.types instanceof Array? pokeId.types.map(e=>e.name).join("-"):pokeId.types ? pokeId.types :  "Sin Tipo"}
-          </h4>
         <h4 className="Height">Height: {pokeId.height}</h4>
         <h4 className="Weight">Weight: {pokeId.weight}</h4>
+        </div>
+        <h4 className="Type">Type: {pokeId.types instanceof Array? pokeId.types.map(e=>e.name).join("-"):pokeId.types ? pokeId.types :  "Sin Tipo"}
+          </h4>
       </div>
     </div>
   ):<h1>Loading...</h1>;

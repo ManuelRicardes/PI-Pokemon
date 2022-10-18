@@ -2,8 +2,9 @@ body{
     background-image: url("../imagenes/black-wallpaper-201219141546111280x960.jpg");
     background-repeat:   round no-repeat;
     background-color: black;
-    background-attachment: fixed;
+    background-attachment:fixed;
     background-position: center;
+    background-size:cover;
    color: white;
     
 }
