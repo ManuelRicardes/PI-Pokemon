@@ -15,154 +15,169 @@ top: 50%;
 transform: translate(-50%,-50%);
 
 }
+.nameimage{
 
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* margin-top: 5%; */
+    
+}
 .name{
-    margin-top: 10px;
-    /* background-color: red; */
+    /* margin-top: 10px; */
+
     height: 50px;
     width: 45%;
-    justify-content: center;
+    /* justify-content: center; */
     position: relative;
-
+    display: inline;
+    
 
 }
 .Input-name{
     /* margin-left: 50px; */
     position: block;
     height: 20px;
+    width: 55%;
     background-color: #C7E1D8   ;
 }
 .image{
-    /* margin-top: -50px; */
-    /* background-color: white; */
-    justify-content: center;
+    
     height: 50px;
     width: 45%;
-    /* margin-left: 500px; */
     position: relative;
-    left: 50%;
-    bottom:  9%;
-    /* min-width: max-content; */
-
+    display: inline;
 }
 .Input-image{
     position: block;
     height: 20px;
     background-color: #C7E1D8   ;
-    /* margin-left: 500px; */
+   width: 55%;
 }
+.lifestrength{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
+}
+
 .life{
-   /* margin-top: 20px; */
-    /* background-color: white; */
+
     height: 50px;
     width: 45%;
-    justify-content: center;
     position: relative;
-    bottom:  5%;
-
+    display: inline;
 }
 .Input-life{
-    /* margin-left: 50px; */
+     /* margin-left: 50px;  */
     position: block;
     height: 20px;
+    width: 55%;
     background-color: #C7E1D8;
 
 }
 .strength{
-    /* margin-top: -50px; */
-    /* background-color: white; */
-    justify-content: center;
+
     height: 50px;
     width: 45%;
-    /* margin-left: 500px */
     position: relative;
-    left: 50%;
-    bottom:  14%;
+    display: inline;
 
 
 }
 .Input-strength{
     position: block;
     height: 20px;
-    background-color: #C7E1D8;
+    background-color: #C7E1D8   ;
+   width: 55%;
+} 
+
+.defensespeed{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
 }
 .defense{
-    /* margin-top: 20px; */
-    /* background-color: white; */
+
+
+
     height: 50px;
     width: 45%;
-    justify-content: center;
     position: relative;
-    bottom: 10%;
-
-
+    display: inline;
 }
 .Input-defense{
-    /* margin-left: 50px; */
+   
+
+    /* margin-left: 50px;  */
     position: block;
     height: 20px;
-    background-color: #C7E1D8; ;
+    width: 55%;
+    background-color: #C7E1D8;
 
 }
 .speed{
-    /* margin-top: -50px; */
-    /* background-color: white; */
-    justify-content: center;
+   
+
     height: 50px;
     width: 45%;
-    /* margin-left: 500px; */
     position: relative;
-    left: 50%;
-    bottom: 19%;
+    display: inline;
 
 
 }
 .Input-speed{
-     position: block;
-    height: 20px;
-    background-color: #C7E1D8
+    
 
+       position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+   width: 55%;
+}
+
+.heigthweight{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
 }
 .height{
-    /* margin-top: 20px; */
-    /* background-color: white; */
-    height: 50px;
+     height: 50px;
     width: 45%;
-    justify-content: center;
     position: relative;
-    bottom: 15%;
+    display: inline;
 
 }
 .Input-height{
-    /* margin-left: 50px; */
+  /* margin-left: 50px;  */
     position: block;
     height: 20px;
-    background-color: #C7E1D8; ;;
+    width: 55%;
+    background-color: #C7E1D8;
 
 }
 .weight{
-    /* margin-top: -50px; */
-    /* background-color: white; */
-    justify-content: center;
+ 
     height: 50px;
     width: 45%;
-    /* margin-left: 500px */
     position: relative;
-    left: 50%;
-bottom: 24%;
+    display: inline;
 }
 .Input-weight{
     position: block;
     height: 20px;
-    background-color: #C7E1D8
-}
+    background-color: #C7E1D8   ;
+   width: 55%;
+} 
 .type{
 
     /* background-color: red; */
 
     justify-content: center;
 position: relative;
-   bottom: 20%;
+   
     width: 10000;
     justify-content: center;
     /* background-color: red; */
@@ -173,7 +188,8 @@ position: relative;
     display:inline-flex;
 }
 .submit{
-    margin-top: 5px;
+    /* margin-top: 5px; */
     position:relative;
-    bottom: 15%;
+    bottom: -3%;
+    /* background-color: aqua; */
 }

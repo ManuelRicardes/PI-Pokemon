@@ -134,6 +134,7 @@ function handleDeleteType(e){
       <Link to = '/pokemons'>
         <button>Back</button>
         </Link>
+        <div className="nameimage">
     
         <div className="name">
           
@@ -160,6 +161,8 @@ function handleDeleteType(e){
 
             <div className="error">{errores.image && <p>{errores.image}</p>}</div>
           </div>
+          </div>
+          <div className="lifestrength">
           <div className="life">
           
           <input
@@ -184,6 +187,8 @@ function handleDeleteType(e){
           ></input>
            {errores.strength && <p>{errores.strength}</p>}
           </div>
+          </div>
+          <div className="defensespeed">
           <div className="defense">
           
           <input
@@ -208,6 +213,8 @@ function handleDeleteType(e){
           ></input>
            {errores.speed && <p>{errores.speed}</p>}
           </div>
+          </div>
+          <div className="heigthweight">
           <div className="height">
           
           <input
@@ -231,6 +238,7 @@ function handleDeleteType(e){
             onChange={handleChange}
           ></input>
            {errores.weight && <p>{errores.weight}</p>}
+           </div>
            </div>
            <div className="type">
           <label>Type: </label>
