@@ -170,6 +170,7 @@ const pokeByID = async (id) => {
     }
  }
 }
+//Crear Pokemon
 const newPokemon = async (req, res) => {
   // try{
   const { name, life, strength, defense, speed,height,weight, image, types } = req.body;
@@ -211,7 +212,7 @@ const newPokemon = async (req, res) => {
       return relacionTablas
 };
 
-  
+  //Eliminar Pokemon
 const deletePokemon = async(req, res) => {
 const {id} = req.body
 try{
@@ -227,11 +228,62 @@ console.log(error)
 
 }
 
+//Editar Pokemon
+const putPokemon = async(req, res) => {
+const  {id,name,image,strength,speed,defense,height,life,weight,types} =req.body
+  try{
+    let pokemon = await Pokemon.findOne({
+      where: {
+        id: id,
+      },
+    });
+
+    if(pokemon){
+      await Pokemon.update({name,image,strength,speed,defense,height,life,weight,types},
+        {where: {
+          id: id,
+        },
+      });
+      
+      await Promise.all(types.map(async e =>{
+        await pokemon.addType([  // es tabla de relaciones belongsToMany
+              (await Type.findOrCreate({
+                where : {
+                  name : e
+                }
+              })) [0].dataValues.id
+            ])
+          }))
+          const relacionTablas = await Pokemon.findOne({
+              where: {
+                name : name
+                
+              }
+              ,
+              include: {
+                model : Type,
+                attributes : ["name"],
+                through : {
+                  attributes : [],
+                },
+              }
+            })
+
+
+      res.status(200).send("successfully edited");
+    }else{
+      res.status(404).send("Pokemon not found");
+    }
+}catch{
+
+}
+}
 module.exports = {
   allPokemons,
   getPokemonDbById,
   pokeByID,
   pokeByName,
   newPokemon,
-  deletePokemon
+  deletePokemon,
+  putPokemon
 };
