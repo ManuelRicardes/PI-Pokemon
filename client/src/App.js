@@ -4,6 +4,7 @@ import Home from './components/Home';
 import LandingPage from './components/LandingPage';
 import Detail from './components/Details';
 import CreatePokemon from './components/CreatePokemon';
+import EditPokemon from './components/EditPokemon';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route exact path= '/pokemons' component={Home}/>
       <Route path= '/pokemons/:id' component={Detail}/>
       <Route path= '/createpokemons' component={CreatePokemon}/>
+      <Route path= '/editpokemons' component={EditPokemon}/>
        {/* <Switch/> */}
     </div>
   );

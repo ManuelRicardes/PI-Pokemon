@@ -1,0 +1,195 @@
+.Formulario{
+    color: white;
+    border: solid 3px red;
+    border-radius: 2%;
+    height: 85%;
+    width: 70%;
+    /* margin-left: 180px;
+    margin-top: 70px; */
+    box-shadow: black 2rem 2rem 30px;
+    background: linear-gradient(345deg, rgb(8, 8, 8), transparent);
+/* min-width: 300px; */
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+
+}
+.nameimage{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* margin-top: 5%; */
+    
+}
+.name{
+    /* margin-top: 10px; */
+
+    height: 50px;
+    width: 45%;
+    /* justify-content: center; */
+    position: relative;
+    display: inline;
+    
+
+}
+.Input-name{
+    /* margin-left: 50px; */
+    position: block;
+    height: 20px;
+    width: 55%;
+    background-color: #C7E1D8   ;
+}
+.image{
+    
+    height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+}
+.Input-image{
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+   width: 55%;
+}
+.lifestrength{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.life{
+
+    height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+}
+.Input-life{
+     /* margin-left: 50px;  */
+    position: block;
+    height: 20px;
+    width: 55%;
+    background-color: #C7E1D8;
+
+}
+.strength{
+
+    height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+
+
+}
+.Input-strength{
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+   width: 55%;
+} 
+
+.defensespeed{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
+}
+.defense{
+
+
+
+    height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+}
+.Input-defense{
+   
+
+    /* margin-left: 50px;  */
+    position: block;
+    height: 20px;
+    width: 55%;
+    background-color: #C7E1D8;
+
+}
+.speed{
+   
+
+    height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+
+
+}
+.Input-speed{
+    
+
+       position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+   width: 55%;
+}
+
+.heigthweight{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
+}
+.height{
+     height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+
+}
+.Input-height{
+  /* margin-left: 50px;  */
+    position: block;
+    height: 20px;
+    width: 55%;
+    background-color: #C7E1D8;
+
+}
+.weight{
+ 
+    height: 50px;
+    width: 45%;
+    position: relative;
+    display: inline;
+}
+.Input-weight{
+    position: block;
+    height: 20px;
+    background-color: #C7E1D8   ;
+   width: 55%;
+} 
+.type{
+
+    /* background-color: red; */
+
+    justify-content: center;
+position: relative;
+   
+    width: 10000;
+    justify-content: center;
+    /* background-color: red; */
+    height: 90px;
+
+}
+.selected{
+    display:inline-flex;
+}
+.submit{
+    /* margin-top: 5px; */
+    position:relative;
+    bottom: -3%;
+    /* background-color: aqua; */
+}

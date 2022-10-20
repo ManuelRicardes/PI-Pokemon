@@ -17,3 +17,9 @@
      margin-top: -5px;
     margin-bottom: 140px;
 }
+.btn{
+    padding: 5%;
+    margin: 15%;
+    position: relative;
+    bottom: 12rem;
+}

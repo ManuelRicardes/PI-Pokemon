@@ -214,7 +214,7 @@ const newPokemon = async (req, res) => {
 
   //Eliminar Pokemon
 const deletePokemon = async(req, res) => {
-const {id} = req.body
+const {id} = req.params
 try{
   await Pokemon.destroy({
     where:{

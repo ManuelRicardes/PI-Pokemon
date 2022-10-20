@@ -91,7 +91,7 @@ router.post("/pokemons",newPokemon)
 // });
 
 //Eliminar Pokemon creado
-router.delete("/pokemons",deletePokemon)
+router.delete("/pokemons/:id",deletePokemon)
 
 
 //Editar Pokemon creado

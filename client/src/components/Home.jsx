@@ -116,14 +116,16 @@ return (
         {
         currentPokemons.length?currentPokemons.map(e=>{
             return (
-                <Link to = {`/pokemons/${e.id}`}>
+                // <Link to = {`/pokemons/${e.id}`}>
                 <Card 
-                 name={e.name} image={e.image} 
+                 name={e.name} 
+                 image={e.image} 
+                  id={e.id}
                 // type ={e.types ? e.types : e.types instanceof Array? e.types[0].name: "Sin Tipo"}
                 type={e.types[0] instanceof Object? e.types.map(e=>e.name).join("-"):e.types? e.types:"Sin tipo"}
                 /> 
                 
-                </Link>
+                // </Link>
           )}):<div>
         <img src="http://gifgifs.com/animations/creatures-cartoons/pokemon/Sleeping.gif"></img>
           
