@@ -212,7 +212,20 @@ const newPokemon = async (req, res) => {
 };
 
   
+const deletePokemon = async(req, res) => {
+const {id} = req.body
+try{
+  await Pokemon.destroy({
+    where:{
+      id:id,
+    },
+  })
+  res.status(200).send("successfully removed");
+}catch(error){
+console.log(error)
+}
 
+}
 
 module.exports = {
   allPokemons,
@@ -220,4 +233,5 @@ module.exports = {
   pokeByID,
   pokeByName,
   newPokemon,
+  deletePokemon
 };

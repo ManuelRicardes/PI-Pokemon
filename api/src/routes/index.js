@@ -6,6 +6,7 @@ const {
   pokeByID,
   pokeByName,
   newPokemon,
+  deletePokemon,
 } = require("../controllers.js/pokemon");
 const {  apiType } = require("../controllers.js/type");
 const { Pokemon } = require("../db");
@@ -87,6 +88,9 @@ router.post("/pokemons",newPokemon)
 //     res.status(400).send(error);
 //   }
 // });
+
+router.delete("/pokemons",deletePokemon)
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
