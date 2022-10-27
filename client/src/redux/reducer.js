@@ -3,6 +3,7 @@ const initialState = {
     types:[],
     pokemonId:{},
     allPokemons:[],
+    editPokemon:{},
     newPokemon:[]
 }
 
@@ -88,6 +89,12 @@ switch (type){
             pokemonId: payload
            
         }
+        case "GET_EDIT_POKEMON":
+            return{
+                ...state,
+                editPokemon: payload
+               
+            }
     
         case "FILTER_BY_TYPE":
         const types = state.allPokemons

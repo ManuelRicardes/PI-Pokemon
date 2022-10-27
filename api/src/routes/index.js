@@ -95,7 +95,7 @@ router.delete("/pokemons/:id",deletePokemon)
 
 
 //Editar Pokemon creado
-router.put("/pokemons",putPokemon)
+router.put("/pokemons/",putPokemon)
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

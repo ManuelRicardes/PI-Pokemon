@@ -51,6 +51,19 @@ export function getPokemonsById(id){
       }
 
     }
+
+    export function getEditPokemon(id){
+
+        return async function(dispatch){
+            const json =(await axios(`http://localhost:3001/pokemons/${id}`)).data          
+            return dispatch({
+              type : "GET_EDIT_POKEMON",
+              payload : json
+            })
+          }
+    
+        }   
+
     export function filterByType(payload){
         return {
         type : "FILTER_BY_TYPE",

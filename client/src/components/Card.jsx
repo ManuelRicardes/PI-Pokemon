@@ -23,7 +23,7 @@ const handleDelete = async(id)=>{
             {id.length>10?
             <div>
             <button className="btn" onClick={()=>handleDelete(id)}><BsFillTrashFill/></button>  
-            <Link to = '/editpokemons'><button className="btn"><BsPencilFill/></button></Link>
+            <Link to = {`/editpokemons/${id}`}><button className="btn"><BsPencilFill/></button></Link>
             </div>
             :null
             }

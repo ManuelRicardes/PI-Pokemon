@@ -230,7 +230,9 @@ console.log(error)
 
 //Editar Pokemon
 const putPokemon = async(req, res) => {
-const  {id,name,image,strength,speed,defense,height,life,weight,types} =req.body
+  
+  // const {id}=req.params
+const  {id, name,image,strength,speed,defense,height,life,weight,types} =req.body
   try{
     let pokemon = await Pokemon.findOne({
       where: {
@@ -239,7 +241,16 @@ const  {id,name,image,strength,speed,defense,height,life,weight,types} =req.body
     });
 
     if(pokemon){
-      await Pokemon.update({name,image,strength,speed,defense,height,life,weight,types},
+      await Pokemon.update({
+        name: name?name:pokemon.name,
+        image: image?image:pokemon.image,
+        strength: strength?strength:pokemon.strength,
+        speed: speed?speed:pokemon.speed,
+        defense: defense?defense:pokemon.defense,
+        height: defense?defense:pokemon.defense,
+        life: life?life:pokemon.life,
+        weight: weight?weight:pokemon.weight,
+        types: types?types:pokemon.types},
         {where: {
           id: id,
         },

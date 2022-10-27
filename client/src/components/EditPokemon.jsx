@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes } from "../redux/actions";
+import { getEditPokemon, getTypes } from "../redux/actions";
 import axios from "axios";
 import "./EditPokemon.css";
 
 function validation(input) {
   let errores = {};
-  if (!input.name) errores.name = "the name must be completed";
+  // if (!input.name) errores.name = "the name must be completed";
   if(input.name.includes(1)||input.name.includes(2)||input.name.includes(3)||input.name.includes(4)||input.name.includes(5)||input.name.includes(6)||input.name.includes(7)||input.name.includes(8)||input.name.includes(9)||input.name.includes(0))errores.name = "the name cannot contain numbers";
   if (isNaN(input.life)) errores.life = "the value must be a number";
   if(input.life<0)errores.life = "value cannot be negative"
@@ -33,29 +33,38 @@ function validation(input) {
   return errores;
 }
 
+
 export default function EditPokemon() {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const types = useSelector((state) => state.types);
+  const editPokemon = useSelector((state) => state.editPokemon);
   const [errores, setErrores] = useState({});
   const [input, setInput] = useState({
-    name: "",
-    image:"",
-    life: "",
-    strength: "",
-    defense: "",
-    speed: "",
-    height: "",
-    weight: "",
-    types: [],
+    id:id,
+    name: editPokemon.name?editPokemon.name:"",
+    image:editPokemon.image?editPokemon.image:"",
+    life:editPokemon.life?editPokemon.life:"",
+    strength:editPokemon.strength?editPokemon.strength:"",
+    defense:editPokemon.defense?editPokemon.defense:"",
+    speed:editPokemon.speed?editPokemon.speed:"",
+    height:editPokemon.height?editPokemon.height:"",
+    weight:editPokemon.weight?editPokemon.weight:"",
+    types:editPokemon.types?editPokemon.types:[],
   });
 
   useEffect(() =>  {
     dispatch(getTypes());
   }, [dispatch]);
-  
+
+  useEffect(() =>  { 
+  dispatch(getEditPokemon(id));
+}, [dispatch, id]);
+
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log(input)
     if (
       errores.name ||
       errores.life ||
@@ -67,26 +76,15 @@ export default function EditPokemon() {
       errores.types ||
       !input.name
       ) {
+        console.log("error en el if")
         alert("Pokemon not Created - please complete the inputs");
-        
       
     } else {
         
         await axios.put(`http://localhost:3001/pokemons`,input);
-      alert("Pokemon Created - go back to see it");
-      setInput({
-        name: "",
-        image:"",
-        life: "",
-        strength: "",
-        defense: "",
-        speed: "",
-        height: "",
-        weight: "",
-        types: [],
-      });
       
-      
+      alert("Pokemon Edited - go back to see it");
+   
     }}
 
   function handleChange(e) {   
@@ -139,7 +137,7 @@ function handleDeleteType(e){
         <div className="name">
           
           <input
-          placeholder="Name"
+          placeholder={editPokemon.name}
           className="Input-name"
             type="text"
             value={input.name}
@@ -152,7 +150,7 @@ function handleDeleteType(e){
            
             <input
             className="Input-image"
-            placeholder="Image url"
+            placeholder={editPokemon.image}
             type="text"
             value={input.image}
             name="image"
@@ -167,7 +165,7 @@ function handleDeleteType(e){
           
           <input
           className="Input-life"
-          placeholder="Life"
+          placeholder={editPokemon.life}
             type="number"
             value={input.life}
             name="life"
@@ -179,7 +177,7 @@ function handleDeleteType(e){
          
           <input
           className="Input-strength"
-          placeholder="Strength"
+          placeholder={editPokemon.strength}
             type="number"
             value={input.strength}
             name="strength"
@@ -193,7 +191,7 @@ function handleDeleteType(e){
           
           <input
           className="Input-defense"
-          placeholder="Defense"
+          placeholder={editPokemon.defense}
             type="number"
             value={input.defense}
             name="defense"
@@ -205,7 +203,7 @@ function handleDeleteType(e){
          
           <input
           className="Input-speed"
-          placeholder="Speed"
+          placeholder={editPokemon.speed}
             type="number"
             value={input.speed}
             name="speed"
@@ -219,7 +217,7 @@ function handleDeleteType(e){
           
           <input
           className="Input-height"
-          placeholder="height"
+          placeholder={editPokemon.height}
             type="number"
             value={input.height}
             name="height"
@@ -232,7 +230,7 @@ function handleDeleteType(e){
           <input
           className="Input-weight"
             type="number"
-            placeholder="weight"
+            placeholder={editPokemon.weight}
             value={input.weight}
             name="weight"
             onChange={handleChange}
